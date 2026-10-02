@@ -1,0 +1,12 @@
+{
+  "name":"مخطط استرداد خسائر الأسهم",
+  "short_name":"استرداد الأسهم",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#07111f",
+  "theme_color":"#07111f",
+  "lang":"ar",
+  "dir":"rtl",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
