@@ -8,20 +8,47 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#11345c 0,transparent 34%),radial-gradient(circle at top left,#113c29 0,transparent 28%),#07111f;color:#f8fafc;font-family:Tahoma,Arial,sans-serif}
+*{box-sizing:border-box;min-width:0}html,body{max-width:100%;overflow-x:hidden}body{margin:0;background:radial-gradient(circle at top right,#11345c 0,transparent 34%),radial-gradient(circle at top left,#113c29 0,transparent 28%),#07111f;color:#f8fafc;font-family:Tahoma,Arial,sans-serif}
 :root{--card:#0d1a2d;--line:#21344e;--muted:#94a3b8;--green:#22c55e;--blue:#38bdf8;--red:#fb7185;--yellow:#fbbf24}
 header,main{max-width:1120px;margin:auto;padding-left:16px;padding-right:16px}header{padding-top:30px;padding-bottom:18px}h1{font-size:clamp(28px,5vw,46px);margin:0 0 8px}h2{font-size:20px;margin:0 0 6px}p{color:var(--muted);line-height:1.7;margin:0}.tag{color:var(--blue);font-size:12px;letter-spacing:1.4px;margin-bottom:5px}
 main{padding-bottom:48px;display:grid;gap:14px}.card{background:linear-gradient(180deg,rgba(15,29,49,.98),rgba(10,21,36,.98));border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.18)}
 .head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:16px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}label{display:grid;gap:7px;font-size:12px;color:#cbd5e1}
-input{width:100%;background:#071321;color:#f8fafc;border:1px solid #2b405e;border-radius:11px;padding:11px 12px;outline:0}input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(56,189,248,.12)}
+input,select{width:100%;max-width:100%;background:#071321;color:#f8fafc;border:1px solid #2b405e;border-radius:11px;padding:11px 12px;outline:0}input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(56,189,248,.12)}
 button{cursor:pointer;border:1px solid #2b405e;background:#102039;color:#e2e8f0;border-radius:11px;padding:10px 13px;font:inherit}.primary{background:linear-gradient(135deg,#16a34a,#0ea5e9);border:0;color:white;font-weight:700}.danger{color:#fecdd3;border-color:#66303b}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.kpi,.mini>div,.summary>div{background:#071321;border:1px solid var(--line);border-radius:13px;padding:12px}.kpi span,.mini span,.summary span{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.kpi strong{font-size:18px}.loss strong{color:var(--red)}
 .sale{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:center}input[type=range]{accent-color:var(--green);padding:0;border:0;background:transparent}.rangeLabels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.rangeLabels b{color:var(--green);font-size:18px}.mini{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.quick,.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.quick button.active{border-color:var(--green);color:#bbf7d0}
 .alt{border:1px solid var(--line);background:#091523;border-radius:14px;padding:12px;margin-bottom:9px}.altTop{display:flex;gap:8px;margin-bottom:8px}.altTop input{font-weight:700}.remove{width:42px;font-size:20px}.altGrid{display:grid;grid-template-columns:1fr 1fr 1fr .8fr;gap:8px;align-items:end}.totalBox{background:#0d1b2f;border:1px solid var(--line);border-radius:11px;padding:10px}.totalBox span{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.totalBox strong{color:var(--blue)}
-.alloc{display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);background:#071321;border-radius:12px;padding:11px}.alloc small{color:var(--muted)}
+.presetTitle{margin:4px 0 9px;color:#cbd5e1;font-size:13px}.presets{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}.preset{display:flex;align-items:center;justify-content:space-between;text-align:right;gap:10px;background:#0a1727;border:1px solid var(--line);border-radius:13px;padding:11px}.preset:hover{border-color:var(--blue)}.presetText{display:grid;gap:4px}.presetText strong{font-size:13px}.presetText small{color:var(--muted);font-size:11px}.presetAdd{flex:0 0 auto;color:#bbf7d0;border:1px solid #285a45;border-radius:9px;padding:5px 8px;font-size:12px}.alloc{display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);background:#071321;border-radius:12px;padding:11px}.alloc small{color:var(--muted)}
 .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.summary strong{font-size:15px}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:13px}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:11px 9px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}th{background:#071321;color:#cbd5e1;font-size:11px}td{font-size:13px}
 .chart{margin-top:12px;background:#071321;border:1px solid var(--line);border-radius:14px;padding:12px}canvas{display:block;width:100%}.note{border:1px dashed #355070;border-radius:14px;padding:14px;color:#cbd5e1;line-height:1.7}.note strong{color:var(--yellow)}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.kpis,.summary{grid-template-columns:repeat(2,1fr)}.sale{grid-template-columns:1fr}.altGrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.card{padding:14px}.head{flex-direction:column}.grid{grid-template-columns:1fr 1fr}h1{font-size:30px}}
+@media(max-width:800px){
+ header,main{padding-left:10px;padding-right:10px}
+ .grid,.kpis,.summary,.sale,.altGrid,.presets,.mini{grid-template-columns:1fr}
+ .head{flex-direction:column;align-items:stretch}
+ .head>button{width:100%}
+ .quick,.actions{display:grid;grid-template-columns:1fr 1fr}
+ .quick button,.actions button{width:100%}
+ .altTop{display:grid;grid-template-columns:1fr 42px}
+ .tableWrap{overflow:visible;border:0;background:transparent}
+ table,thead,tbody,tr,th,td{display:block;width:100%}
+ table{min-width:0}
+ thead{display:none}
+ tbody{display:grid;gap:10px}
+ tbody tr{border:1px solid var(--line);border-radius:14px;background:#071321;padding:10px}
+ tbody td{display:grid;grid-template-columns:minmax(115px,42%) 1fr;gap:10px;align-items:center;text-align:right;white-space:normal;border-bottom:1px solid var(--line);padding:9px 4px}
+ tbody td:last-child{border-bottom:0}
+ tbody td::before{content:attr(data-label);color:var(--muted);font-size:11px}
+ .chart{overflow:hidden}
+ canvas{max-width:100%}
+}
+@media(max-width:520px){
+ .card{padding:13px;border-radius:16px}
+ .grid,.kpis,.summary,.sale,.altGrid,.presets,.mini{grid-template-columns:1fr}
+ .quick,.actions{grid-template-columns:1fr 1fr}
+ h1{font-size:29px}
+ header{padding-top:20px}
+ .preset{padding:10px}
+}
 </style>
 </head>
 <body>
@@ -65,7 +92,14 @@ button{cursor:pointer;border:1px solid #2b405e;background:#102039;color:#e2e8f0;
 </section>
 
 <section class="card">
-<div class="head"><div><h2>3) الشركات أو الصناديق البديلة</h2><p>وزع حصيلة البيع على بديل واحد أو أكثر. أدخل العائد السنوي المفترض لكل بديل.</p></div><button id="addAlt" class="primary">+ إضافة بديل</button></div>
+<div class="head"><div><h2>3) الشركات أو الصناديق البديلة</h2><p>اختر من البدائل الجاهزة أو أضف بديلًا مخصصًا. بعد الاختيار أدخل نسبة التوزيع والعائد السنوي المفترض.</p></div><button id="addAlt" class="primary">+ إضافة بديل مخصص</button></div>
+<div class="presetTitle">بدائل جاهزة</div>
+<div class="presets">
+  <button class="preset" data-preset="9406"><span class="presetText"><strong>صندوق البلاد MSCI للأسهم الأمريكية</strong><small>رمز 9406 — أسهم أمريكية متوافقة مع الشريعة</small></span><span class="presetAdd">إضافة</span></button>
+  <button class="preset" data-preset="9404"><span class="presetText"><strong>صندوق الإنماء للصكوك الحكومية السعودية</strong><small>رمز 9404 — صكوك حكومية سعودية</small></span><span class="presetAdd">إضافة</span></button>
+  <button class="preset" data-preset="7010"><span class="presetText"><strong>stc</strong><small>رمز 7010 — اتصالات</small></span><span class="presetAdd">إضافة</span></button>
+  <button class="preset" data-preset="1120"><span class="presetText"><strong>مصرف الراجحي</strong><small>رمز 1120 — مصرف</small></span><span class="presetAdd">إضافة</span></button>
+</div>
 <div id="alternatives"></div>
 <div class="alloc"><span>إجمالي التوزيع:</span><strong id="allocationTotal">0%</strong><small id="allocationHint">يجب أن يساوي 100%.</small></div>
 </section>
@@ -145,7 +179,7 @@ function calc(){
   var v=held+av,rec=Math.max(0,v-m.cur),rem=Math.max(0,m.orig-v),rp=m.loss>0?Math.max(0,rec/m.loss*100):100,cp=m.orig?v/m.orig*100:0;
   rows.push({y:y,v:v,rec:rec,rem:rem,rp:rp,cp:cp})
  }
- $("results").innerHTML=rows.map(function(r){return "<tr><td>السنة "+r.y+"</td><td><strong>"+money(r.v)+"</strong></td><td>"+money(r.rec)+"</td><td>"+money(r.rem)+"</td><td>"+per(r.rp)+"</td><td>"+per(r.cp)+"</td></tr>"}).join("");
+ $("results").innerHTML=rows.map(function(r){return "<tr><td data-label=\"الفترة\">السنة "+r.y+"</td><td data-label=\"قيمة المحفظة\"><strong>"+money(r.v)+"</strong></td><td data-label=\"المسترد من الخسارة\">"+money(r.rec)+"</td><td data-label=\"الخسارة المتبقية\">"+money(r.rem)+"</td><td data-label=\"استرداد الخسارة\">"+per(r.rp)+"</td><td data-label=\"رأس المال المسترد\">"+per(r.cp)+"</td></tr>"}).join("");
  var target=rows.find(function(r){return r.v>=m.orig}),y5=rows[4];
  $("summary").innerHTML="<div><span>رأس المال الأصلي</span><strong>"+money(m.orig)+"</strong></div><div><span>القيمة الحالية</span><strong>"+money(m.cur)+"</strong></div><div><span>بعد 5 سنوات</span><strong>"+money(y5.v)+"</strong></div><div><span>الوصول لرأس المال الأصلي</span><strong>"+(target?"في السنة "+target.y:"لم يصل خلال 5 سنوات")+"</strong></div>";
  draw(rows,m.orig,m.cur)
@@ -160,10 +194,24 @@ function draw(rows,target,current){
  var pts=[current].concat(rows.map(function(r){return r.v}));ctx.strokeStyle="#22c55e";ctx.lineWidth=3;ctx.beginPath();pts.forEach(function(v,i){if(i===0)ctx.moveTo(xx(i),yy(v));else ctx.lineTo(xx(i),yy(v))});ctx.stroke();
  pts.forEach(function(v,i){ctx.fillStyle="#38bdf8";ctx.beginPath();ctx.arc(xx(i),yy(v),4,0,Math.PI*2);ctx.fill();ctx.fillStyle="#cbd5e1";ctx.fillText(i===0?"الآن":i+"س",xx(i)-8,h-12)})
 }
-function seed(){addAlt({name:"بديل 1 - شركة أو صندوق",allocation:70,growth:7,dividend:2});addAlt({name:"بديل 2 - أصل دفاعي أو توزيعات",allocation:30,growth:2,dividend:4})}
+var PRESETS={
+ "9406":{name:"صندوق البلاد MSCI للأسهم الأمريكية (9406)",allocation:0,growth:0,dividend:0},
+ "9404":{name:"صندوق الإنماء للصكوك الحكومية السعودية (9404)",allocation:0,growth:0,dividend:0},
+ "7010":{name:"stc (7010)",allocation:0,growth:0,dividend:0},
+ "1120":{name:"مصرف الراجحي (1120)",allocation:0,growth:0,dividend:0}
+};
+function addPreset(code){
+ var p=PRESETS[code]; if(!p)return;
+ var exists=alternatives().some(function(a){return a.name===p.name});
+ if(exists){alert("هذا البديل مضاف بالفعل.");return}
+ addAlt({name:p.name,allocation:p.allocation,growth:p.growth,dividend:p.dividend});update()
+}
+function seed(){addAlt({name:"صندوق البلاد MSCI للأسهم الأمريكية (9406)",allocation:70,growth:0,dividend:0});addAlt({name:"صندوق الإنماء للصكوك الحكومية السعودية (9404)",allocation:30,growth:0,dividend:0})}
 function example(){$("stockName").value="المتقدمة";$("ticker").value="2330";$("qty").value=169;$("avgCost").value=60.59;$("currentPrice").value=21.55;$("holdReturn").value=6;$("sellPct").value=50;$("alternatives").innerHTML="";seed();update();calc()}
 ["stockName","ticker","qty","avgCost","currentPrice","holdReturn","sellPct"].forEach(function(id){$(id).addEventListener("input",update)});
-$("addAlt").addEventListener("click",function(){addAlt();update()});$("calc").addEventListener("click",calc);$("advancedExample").addEventListener("click",example);
+$("addAlt").addEventListener("click",function(){addAlt();update()});
+document.querySelectorAll("[data-preset]").forEach(function(b){b.addEventListener("click",function(){addPreset(b.dataset.preset)})});
+$("calc").addEventListener("click",calc);$("advancedExample").addEventListener("click",example);
 document.querySelectorAll("[data-sell]").forEach(function(b){b.addEventListener("click",function(){$("sellPct").value=b.dataset.sell;update();calc()})});
 $("save").addEventListener("click",function(){var vals={};["stockName","ticker","qty","avgCost","currentPrice","holdReturn","sellPct"].forEach(function(id){vals[id]=$(id).value});localStorage.setItem("stockRecoveryPlan",JSON.stringify({vals:vals,alts:alternatives()}));alert("تم حفظ الخطة في هذا الجهاز.")});
 $("load").addEventListener("click",function(){var raw=localStorage.getItem("stockRecoveryPlan");if(!raw){alert("لا توجد خطة محفوظة.");return}var d=JSON.parse(raw);Object.keys(d.vals||{}).forEach(function(id){if($(id))$(id).value=d.vals[id]});$("alternatives").innerHTML="";(d.alts||[]).forEach(addAlt);if(!(d.alts||[]).length)seed();update();calc()});
